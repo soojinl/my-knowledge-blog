@@ -1,6 +1,6 @@
 ﻿# yaml-language-server: $schema=./quartz/plugins/quartz-plugins.schema.json
 configuration:
-  pageTitle: 나의 지식 아카이브
+  pageTitle: AI Growth Lab
   pageTitleSuffix: ""
   enableSPA: true
   enablePopovers: true
@@ -282,4 +282,5 @@ layout:
         right: []
     canvas: {}
     bases: {}
+
 
