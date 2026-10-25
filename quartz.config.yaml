@@ -5,7 +5,8 @@ configuration:
   enableSPA: true
   enablePopovers: true
   analytics:
-    provider: plausible
+    provider: google
+    tagId: G-LL5ESY6RR7
   locale: ko-KR
   baseUrl: soojinl.github.io/my-knowledge-blog
   ignorePatterns:
