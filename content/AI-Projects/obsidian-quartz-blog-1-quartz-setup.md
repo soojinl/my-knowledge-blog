@@ -44,6 +44,13 @@ node -v
 git -v
 ```
 
+Git을 처음 쓴다면 커밋에 남길 이름과 이메일을 한 번 설정해 둡니다. 설정하지 않으면 나중에 커밋할 때 오류가 납니다.
+
+```powershell
+git config --global user.name "내 이름"
+git config --global user.email "내이메일@example.com"
+```
+
 ---
 
 ## 1단계. Quartz 내려받기
@@ -69,7 +76,7 @@ git remote set-url origin https://github.com/내아이디/my-knowledge-blog.git
 git push -u origin v5
 ```
 
-이제부터 작업 브랜치는 `v5`입니다.
+처음 push할 때 GitHub 로그인 창이 뜨면 로그인해서 승인합니다. 이제부터 작업 브랜치는 `v5`입니다.
 
 ## 3단계. 블로그 기본 설정
 
@@ -118,7 +125,19 @@ content/
 └── Projects/index.md     # 프로젝트 기록
 ```
 
-`index.md` 예시입니다.
+폴더는 블로그 폴더에서 아래 명령으로 만듭니다.
+
+```powershell
+New-Item -ItemType Directory -Force content\AI-News, content\Study, content\Projects
+```
+
+그다음 폴더마다 `index.md` 파일을 만듭니다. 메모장으로 열면 새 파일을 만들지 묻는데, **예**를 누르고 내용을 붙여 넣은 뒤 저장합니다.
+
+```powershell
+notepad content\AI-News\index.md
+```
+
+`content\AI-News\index.md` 예시입니다. 나머지 폴더도 제목과 설명만 바꿔 똑같이 만듭니다.
 
 ```markdown
 ---
@@ -147,7 +166,12 @@ push할 때마다 자동으로 사이트가 갱신되도록 GitHub Actions를 �
 
 **① 배포 파일 만들기**
 
-`.github/workflows/deploy.yaml` 파일을 만들고 아래 내용을 넣습니다.
+`.github/workflows/deploy.yaml` 파일을 만들고 아래 내용을 넣습니다. 블로그 폴더에서 아래 명령으로 메모장을 열어 붙여 넣고 저장하면 됩니다.
+
+```powershell
+New-Item -ItemType Directory -Force .github\workflows
+notepad .github\workflows\deploy.yaml
+```
 
 ```yaml
 name: Deploy Quartz to GitHub Pages

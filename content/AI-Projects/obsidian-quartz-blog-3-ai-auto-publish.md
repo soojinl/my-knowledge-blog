@@ -76,6 +76,69 @@ my-knowledge-blog 저장소의 content/AI-News/에 작성하고 v5 브랜치에 
 7. **안전장치:** "빌드가 실패하거나 확인된 항목이 5개 미만이면 발행하지 말고 이유를 보고한다."
 8. **커밋과 push:** `git add content/AI-News/` → 커밋 → `git push origin v5`
 
+위 항목을 모두 담은 지시문 예시입니다. 그대로 복사해서 관심 분야, 참고 채널, 저장소 경로만 바꿔 쓰면 됩니다. 루틴을 만들 때 Claude에게 "지시문은 이걸로 해줘"라고 함께 붙여 넣으세요.
+
+```
+너는 내 Quartz 블로그(저장소 루트의 content/ 폴더)에 'AI 주간 뉴스' 글을
+매주 작성해 발행하는 에이전트다. 블로그 발행은 승인 없이 끝까지 진행한다.
+다른 곳에는 아무것도 게시하지 않는다.
+
+## 독자와 관심사
+독자는 마케팅·데이터 분석 실무자다. 뉴스는 이 관심사 기준으로 고른다.
+
+## 1. 저장소 준비
+- git fetch origin v5 && git checkout v5 && git pull origin v5
+- 날짜 확인: TZ=Asia/Seoul date +%F (이하 YYYY-MM-DD)
+- content/AI-News/의 가장 최근 *-ai-weekly.md 파일을 먼저 읽고,
+  구성·분량·문체를 그 글에 맞춘다.
+
+## 2. 뉴스 수집 (최근 7일)
+- 참고 채널: The Batch, Last Week in AI, Import AI, The Rundown AI,
+  TLDR AI, Ben's Bites, Simon Willison's Weblog
+- 후보마다 원문(공식 발표, 주요 매체)을 WebFetch로 읽어 세부 사실을 확보한다.
+- WebFetch가 실패하면 WebSearch로 2곳 이상에서 확인된 사실만 쓴다.
+- 발표일이 최근 7일 밖이면 제외한다.
+
+## 3. 선정 기준
+- 관심사와 직접 연결되는 뉴스를 우선한다.
+- 같은 사건은 하나로 합치고, 근거 없는 과장 기사는 뺀다.
+- 6~10개. 개수를 채우려고 약한 항목을 넣지 않는다.
+
+## 4. 글 작성
+파일: content/AI-News/YYYY-MM-DD-ai-weekly.md
+frontmatter:
+---
+title: AI 주간 뉴스 (YYYY년 M월 N주차)
+date: YYYY-MM-DD
+tags:
+  - AI
+  - 주간뉴스
+description: 이번 주 흐름을 한 문장으로
+---
+본문:
+- 첫 문단: 이번 주 흐름을 3~4문장으로 요약한다.
+- 항목마다 '### N. 제목' 아래 3~4개의 짧은 문단으로 쓴다.
+  누가, 언제, 무엇을, 어떻게 작동하는지, 핵심 수치, 이용 조건, 한계를
+  링크를 열지 않아도 이해될 만큼 구체적으로 쓴다.
+- 각 항목 끝에 '**실무 관점:**' 문단과 '- **원문:** [출처명](URL)' 줄을 붙인다.
+- 문체: 존댓말, 사실 중심, 짧은 문장. 과장 표현과 이모지 금지.
+
+## 5. 검증
+- npm install 후 npx quartz build로 빌드 성공을 확인한다.
+- 빌드가 실패하면 커밋하지 말고 원인을 보고하고 종료한다.
+- 원문 확인이 된 항목이 5개 미만이면 발행하지 말고 이유를 보고하고 종료한다.
+
+## 6. 커밋과 push
+- git add content/AI-News/
+- git commit -m "Add AI 주간 뉴스 YYYY-MM-DD"
+- git push origin v5. 실패하면 git pull --rebase origin v5 후 한 번 더.
+
+## 7. 보고
+- 글 제목, 선정한 항목 목록, 블로그 주소를 짧게 보고한다.
+
+주의: content/AI-News/ 밖의 파일은 수정하거나 삭제하지 않는다.
+```
+
 팁 두 가지입니다.
 
 - **6번 "기준 글" 규칙이 유용합니다.** 형식을 바꾸고 싶으면 지시문을 고칠 필요 없이 최근 글 하나만 원하는 형식으로 고쳐 두면 다음 실행부터 반영됩니다.
@@ -86,6 +149,46 @@ my-knowledge-blog 저장소의 content/AI-News/에 작성하고 v5 브랜치에 
 - 루틴 목록과 실행 기록은 [claude.ai/code/routines](https://claude.ai/code/routines)에서 볼 수 있습니다.
 - 처음 만든 뒤에는 한 번 바로 실행해서 글이 제대로 올라오는지 확인하는 것을 권합니다.
 - 실행이 끝나고 push되면 GitHub Actions가 1~2분 안에 블로그에 반영합니다.
+
+## 5단계. 글 쓰고 고치기: 어디서 하면 되나요?
+
+여기까지 만들면 자주 헷갈리는 부분이 있습니다. **Obsidian에서 쓰기만 해서는 블로그에 올라가지 않습니다.** Obsidian 보관함과 블로그 폴더는 서로 다른 곳이기 때문입니다.
+
+| 위치 | 역할 |
+|---|---|
+| Obsidian `Blog Drafts` | 초안을 쓰고 고치는 곳. 여기서 고쳐도 블로그는 바뀌지 않습니다. |
+| 블로그 폴더 `my-knowledge-blog/content` | 실제 블로그 원본. 여기를 바꾸고 push해야 블로그에 반영됩니다. |
+
+### 방법 1. Claude Code에게 요청하기 (가장 쉬움)
+
+블로그 폴더에서 Claude Code를 열고 말로 요청하면, Claude가 파일 복사부터 빌드 확인, push까지 해 줍니다. 블로그 폴더 밖에서 열었다면 Obsidian 보관함과 블로그 폴더 경로를 함께 알려 줍니다.
+
+- **새 글 올리기:** "Blog Drafts의 ○○ 글을 Study 카테고리에 올려줘"
+- **기존 글 수정:** Obsidian `Blog Drafts`에서 글을 고친 뒤 "○○ 글 수정한 걸로 반영해줘"
+- **AI 주간 뉴스 수정:** 뉴스 글은 루틴이 블로그 폴더에 바로 쓰기 때문에 Obsidian에는 없습니다. "이번 주 AI 뉴스에서 3번 항목 고쳐줘"처럼 요청합니다.
+
+Claude가 올리기 전에 내용을 보여 주고 확인받게 하려면 "올리기 전에 나한테 확인받아"라고 덧붙이면 됩니다.
+
+### 방법 2. 직접 올리기
+
+1. 글 파일을 블로그 폴더의 카테고리 폴더로 복사합니다. 기존 글을 고친 경우에는 같은 이름으로 덮어씁니다.
+
+```powershell
+Copy-Item "$HOME\Documents\내보관함\Blog Drafts\글제목.md" "$HOME\Documents\my-knowledge-blog\content\Study\글제목.md"
+```
+
+2. 블로그 폴더에서 올립니다.
+
+```powershell
+cd $HOME\Documents\my-knowledge-blog
+git add .
+git commit -m "Update 글 제목"
+git push origin v5
+```
+
+3. 1~2분 뒤 블로그에 반영됩니다.
+
+**습관 하나:** 블로그 폴더의 파일을 직접 고치면 Obsidian 초안과 내용이 달라집니다. **항상 Obsidian `Blog Drafts`에서 고친 뒤 반영**하면 두 곳의 내용이 어긋나지 않습니다.
 
 ---
 

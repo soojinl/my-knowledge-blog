@@ -23,7 +23,7 @@ Obsidian에서 글을 쓰고, 검토를 마친 글만 Quartz 블로그로 발행
 
 ## 1단계. Obsidian 폴더 나누기
 
-Obsidian 보관함(vault)에 폴더 두 개를 만듭니다.
+Obsidian 보관함(vault)에 폴더 두 개를 만듭니다. 보관함이 없다면 Obsidian을 처음 열 때 **새 보관함 만들기**로 먼저 만듭니다. 블로그 폴더(`my-knowledge-blog`)와는 다른 위치에 둡니다.
 
 | 폴더 | 용도 | Quartz로 복사? |
 |---|---|---|
@@ -98,8 +98,19 @@ description: 글의 핵심 내용을 한 문장으로 요약하세요
 ## 5단계. 발행하기
 
 1. 발행 전 체크리스트를 확인합니다.
-2. 글 파일을 Quartz 프로젝트의 알맞은 카테고리 폴더(예: `content/Study/`)로 **복사**합니다.
-3. 미리 보기로 확인합니다: `npx quartz build --serve`
+2. 글 파일을 Quartz 프로젝트의 알맞은 카테고리 폴더(예: `content/Study/`)로 **복사**합니다. 파일 탐색기로 복사해도 되고, PowerShell에서는 아래처럼 합니다. 경로는 내 보관함 위치에 맞게 바꿉니다.
+
+```powershell
+Copy-Item "$HOME\Documents\내보관함\Blog Drafts\새글.md" "$HOME\Documents\my-knowledge-blog\content\Study\새글.md"
+```
+
+3. 블로그 폴더로 이동해 미리 보기로 확인합니다.
+
+```powershell
+cd $HOME\Documents\my-knowledge-blog
+npx quartz build --serve
+```
+
 4. 올립니다.
 
 ```powershell
