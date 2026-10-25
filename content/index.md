@@ -2,8 +2,6 @@
 title: MayLab
 ---
 
-# MayLab
-
 AI와 데이터를 활용해 일하는 방식을 개선하고, 실험과 배움을 기록합니다.
 
 ## AI · CRM · Data · Growth
