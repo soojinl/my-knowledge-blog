@@ -13,6 +13,7 @@ Obsidian에서 글을 쓰고, 검토를 마친 글만 Quartz 블로그로 발행
 - [[AI-Projects/obsidian-quartz-blog-1-quartz-setup|1편. Quartz 설치와 GitHub Pages 배포]]
 - **2편. Obsidian에서 글 쓰고 발행하기** (이 글)
 - [[AI-Projects/obsidian-quartz-blog-3-ai-auto-publish|3편. Claude Code로 AI 뉴스 자동 발행하기]]
+- [[AI-Projects/obsidian-quartz-blog-4-ga4|4편. Google Analytics 4 설치하기]]
 
 ## 준비물
 

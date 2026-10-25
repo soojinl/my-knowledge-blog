@@ -13,6 +13,7 @@ Claude Code의 **루틴(Routine)** 기능으로 매주 AI 뉴스를 찾아 요�
 - [[AI-Projects/obsidian-quartz-blog-1-quartz-setup|1편. Quartz 설치와 GitHub Pages 배포]]
 - [[AI-Projects/obsidian-quartz-blog-2-obsidian-workflow|2편. Obsidian에서 글 쓰고 발행하기]]
 - **3편. Claude Code로 AI 뉴스 자동 발행하기** (이 글)
+- [[AI-Projects/obsidian-quartz-blog-4-ga4|4편. Google Analytics 4 설치하기]]
 
 ## 준비물
 
@@ -194,7 +195,6 @@ git push origin v5
 
 ## 마무리
 
-이제 직접 쓰는 글은 Obsidian에서 검토 후 발행하고, AI 뉴스는 루틴이 매주 자동으로 발행하는 블로그가 완성됐습니다.
+이제 직접 쓰는 글은 Obsidian에서 검토 후 발행하고, AI 뉴스는 루틴이 매주 자동으로 발행하는 블로그가 완성됐습니다. 다음 편에서는 방문자 데이터를 볼 수 있도록 Google Analytics 4를 설치합니다.
 
-- [[AI-Projects/obsidian-quartz-blog-1-quartz-setup|1편. Quartz 설치와 GitHub Pages 배포]]
-- [[AI-Projects/obsidian-quartz-blog-2-obsidian-workflow|2편. Obsidian에서 글 쓰고 발행하기]]
+- [[AI-Projects/obsidian-quartz-blog-4-ga4|4편. Google Analytics 4 설치하기]]

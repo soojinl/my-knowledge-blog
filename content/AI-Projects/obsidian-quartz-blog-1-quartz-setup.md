@@ -7,11 +7,12 @@ tags:
 description: 마크다운 파일을 무료 웹사이트로 바꿔 주는 Quartz를 설치하고, GitHub Pages로 자동 배포되는 블로그를 만드는 방법
 ---
 
-Obsidian에서 쓴 글을 무료로 웹에 발행하고, 매주 AI 뉴스는 AI가 알아서 써서 올리는 블로그를 만드는 과정을 3편으로 정리했습니다. 이 글만 보고 그대로 따라 할 수 있도록 순서대로 적었습니다.
+Obsidian에서 쓴 글을 무료로 웹에 발행하고, 매주 AI 뉴스는 AI가 알아서 써서 올리는 블로그를 만드는 과정을 4편으로 정리했습니다. 이 글만 보고 그대로 따라 할 수 있도록 순서대로 적었습니다.
 
 - **1편. Quartz 설치와 GitHub Pages 배포** (이 글)
 - [[AI-Projects/obsidian-quartz-blog-2-obsidian-workflow|2편. Obsidian에서 글 쓰고 발행하기]]
 - [[AI-Projects/obsidian-quartz-blog-3-ai-auto-publish|3편. Claude Code로 AI 뉴스 자동 발행하기]]
+- [[AI-Projects/obsidian-quartz-blog-4-ga4|4편. Google Analytics 4 설치하기]]
 
 ## 완성된 구조
 
