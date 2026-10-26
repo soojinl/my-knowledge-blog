@@ -1,5 +1,5 @@
 ---
-title: "채용 공고 알리미 만들기: 여러 사이트 수집, AI 없이 채점, 텔레그램 알림"
+title: "채용 공고 알리미 만들기"
 date: 2026-10-26
 tags:
   - 업무자동화
@@ -130,4 +130,4 @@ GitHub Actions는 정해진 시간에 서버에서 코드를 실행해 줍니다
 
 ## 관련
 
-- [[AI-Projects/obsidian-quartz-blog-3-ai-auto-publish|3편. Claude Code로 AI 뉴스 자동 발행하기]]
+- [[AI-Projects/obsidian-quartz-blog/3-ai-auto-publish|3편. Claude Code로 AI 뉴스 자동 발행하기]]

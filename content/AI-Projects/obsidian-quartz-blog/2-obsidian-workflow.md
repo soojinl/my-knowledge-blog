@@ -1,5 +1,5 @@
 ---
-title: "Obsidian + Quartz 블로그 만들기 (2) Obsidian에서 글 쓰고 발행하기"
+title: "(2) Obsidian에서 글 쓰고 발행하기"
 date: 2026-10-25
 tags:
   - Obsidian
@@ -10,10 +10,10 @@ description: Obsidian 템플릿으로 초안을 쓰고, 검토한 글만 Quartz 
 
 Obsidian에서 글을 쓰고, 검토를 마친 글만 Quartz 블로그로 발행하는 방법을 정리합니다. 초안과 공개 글을 분리해 두면 미완성 글이나 민감한 내용이 실수로 공개되는 일을 막을 수 있습니다.
 
-- [[AI-Projects/obsidian-quartz-blog-1-quartz-setup|1편. Quartz 설치와 GitHub Pages 배포]]
+- [[AI-Projects/obsidian-quartz-blog/1-quartz-setup|1편. Quartz 설치와 GitHub Pages 배포]]
 - **2편. Obsidian에서 글 쓰고 발행하기** (이 글)
-- [[AI-Projects/obsidian-quartz-blog-3-ai-auto-publish|3편. Claude Code로 AI 뉴스 자동 발행하기]]
-- [[AI-Projects/obsidian-quartz-blog-4-ga4|4편. Google Analytics 4 설치하기]]
+- [[AI-Projects/obsidian-quartz-blog/3-ai-auto-publish|3편. Claude Code로 AI 뉴스 자동 발행하기]]
+- [[AI-Projects/obsidian-quartz-blog/4-ga4|4편. Google Analytics 4 설치하기]]
 
 ## 준비물
 
@@ -128,4 +128,4 @@ git push origin v5
 
 이제 직접 쓴 글을 발행할 수 있습니다. 다음 편에서는 Claude Code를 이용해 AI가 매주 뉴스를 찾아 글을 쓰고 자동으로 발행하도록 만듭니다.
 
-- [[AI-Projects/obsidian-quartz-blog-3-ai-auto-publish|3편. Claude Code로 AI 뉴스 자동 발행하기]]
+- [[AI-Projects/obsidian-quartz-blog/3-ai-auto-publish|3편. Claude Code로 AI 뉴스 자동 발행하기]]
